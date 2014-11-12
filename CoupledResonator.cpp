@@ -59,9 +59,6 @@ void CoupledResonator_next(CoupledResonator *unit, int inNumSamples)
     // get the pointer to the output buffer
     float *out = ZOUT(0);
     
-    // freq is control rate, so calculate theta once.
-    // IN0(0) returns the freq from input 0
-    
     float displacement1 = unit->displacement1;
     float displacement2 = unit->displacement2;
     float velocity1 = unit->velocity1;
@@ -122,8 +119,6 @@ void CoupledResonator_next(CoupledResonator *unit, int inNumSamples)
 // LOAD FUNCTION
 
 // the load function is called by the host when the plugin is loaded
-// Unless the flag for STATIC_PLUGINS is on, the argument (PB_SINE) does not seem to matter
-// it can also be omitted (except when STATIC-PLUGINS are desired)
 
 PluginLoad(CoupledResonator)
 {
